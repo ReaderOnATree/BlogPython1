@@ -1,0 +1,54 @@
+{% extends "baza.html" %}
+{% block title %}Dodaj post{% endblock %}
+{% block content %}
+    <h1 class="display-4">{{ tytul }}</h1>
+    <p class="lead">{{ tresc }}</p>
+{% endblock %}
+{% block form %}
+<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <form name="addForm" id="addForm" method="POST" action="{{ url_for('addpost') }}" novalidate>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Tytuł</label>
+                            <input type="text" class="form-control" placeholder="Tytuł" name="title" id="title" required data-validation-required-message="Wprowadź tytuł.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Podtytuł</label>
+                            <input type="email" class="form-control" placeholder="Podtytuł" name="subtitle" id="subtitle" required data-validation-required-message="Wprowadź podtytuł.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Autor</label>
+                            <input type="tel" class="form-control" placeholder="Autor" name="author" id="author" required data-validation-required-message="Podaj swoje imię lub nick.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Treść posta</label>
+                            <textarea rows="5" class="form-control" placeholder="Post" name="content" id="content" required data-validation-required-message="Tutaj wprowadź treść posta."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div id="success"></div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" id="sendMessageButton">Wyślij</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

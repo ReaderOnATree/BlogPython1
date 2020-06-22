@@ -1,0 +1,16 @@
+{% extends "baza.html" %}
+{% block title %}Kontent{% endblock %}
+{% block content %}
+    {% if tytul == "Strona główna" %}
+        <h1></h1>
+        <p></p>
+    {% else %}
+        <h1>{{ post.title }}</h1>
+        <h4>{{ post.subtitle }}</h4>
+        <span class="meta">Umieszczony przez {{ post.author }}, {{ date_posted }}</span>
+    {% endif %}
+{% endblock %}
+{% block kontentPostu %}
+    {{ post.content|safe }}
+{% endblock %}
+

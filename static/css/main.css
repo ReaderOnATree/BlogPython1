@@ -1,0 +1,12 @@
+#photo1{
+    background-image: url("/img/volcano.jpg");
+}
+#header{
+    text-align: center;
+    background-image: url("https://wallpapersafari.com/backgrounds-css");
+}
+#posty{
+    margin-left: 600px;
+    margin-right: 600px;
+    text-align: justify;
+}

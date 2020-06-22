@@ -1,0 +1,31 @@
+{% extends "baza.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+    <h1 class="display-4">{{ tytul }}</h1>
+    <p class="lead">{{ tresc }}</p>
+    {% if current_user.is_authenticated %}
+    Witaj {{ current_user.name }}!
+    {% endif %}
+{% endblock %}
+{% block kontentPostu %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+            {% for post in posts %}
+                <div class="post-preview">
+                    <a href="{{ url_for('kontent', post_id=post.id) }}">
+                        <h2 id='post_tytul'class="post-title">
+                            {{ post.title }}
+                        </h2>
+                        <h3 id='podtytul' class="post-subtitle">
+                            {{ post.subtitle }}
+                        </h3>
+                    </a>
+                    <p class="post-meta"> Post by {{ post.author }} on {{ post.date_posted.strftime('%B %d %Y') }}</p>
+                </div>
+                <hr>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
