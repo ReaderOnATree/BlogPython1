@@ -1,10 +1,18 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from .extensions import db
+
+
+def create_app(config_file='settings.py'):
+    app = Flask(__name__)
+    app.config.from_pyfile(config_file)
+    db.init_app(app)
+    return app
 
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///baza.db'
-db = SQLAlchemy(app)
+#db = SQLAlchemy(app)
 
 
 class User(db.Model):
